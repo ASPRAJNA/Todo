@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TODO</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="https://thumbs.dreamstime.com/b/todo-list-13838958.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        #heading {
+            background-color: rgb(0, 0, 0);
+            top: 0px;
+            left: 0px;
+            position: fixed;
+            width: 100%;
+            text-align: center;
+            color: whitesmoke;
+            z-index: 1;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input {
+            font-family: 'Franklin Gothic Medium';
+            font-size: 18px;
+            padding: 6px;
+            border: green solid 2px;
+        }
+
+        #b1 {
+            padding: 10px;
+            font-size: 14px;
+            font-family: cursive;
+            color: whitesmoke;
+            font-weight: bolder;
+            background-color: green;
+            border: whitesmoke solid 2px;
+            border-radius: 10px;
+        }
+
+        #b1:hover {
+            cursor: pointer;
+            color: green;
+            background-color: whitesmoke;
+            border: green solid 2px;
+        }
+
+        #b2 {
+            padding: 10px;
+            font-size: 14px;
+            font-family: cursive;
+            color: whitesmoke;
+            font-weight: bolder;
+            background-color: rgb(233, 62, 62);
+            border: whitesmoke solid 2px;
+            border-radius: 10px;
+        }
+
+        #b2:hover {
+            cursor: pointer;
+            color: rgb(233, 62, 62);
+            background-color: whitesmoke;
+            border: rgb(233, 62, 62) solid 2px;
+        }
+        .changed , span{
+            color:rgb(255, 255, 255);
+        }
+        .li {
+            padding: 25px;
+            margin: auto;
+            width: 60%;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+i,em{
+    color: grey;
+}
+        .fa,
+        span {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="heading">
+        <h2>TODO</h2>
+    </div>
+    <br><br><br><br>
+    <br>
+    <form>
+        <input type="text" id="in" placeholder="ENTER THE ITEM" value=""><br><br>
+        <button type="button" id="b1">ADD</button>
+        <button type="button" id="b2">CLR</button>
+    </form>
+    <center>
+        <br><br><h4>YOUR LIST :</h4>
+        <div id="main">
+            
+            <div class="li">TEA POWDER
+                <br>
+                <i class="fa fa-check"
+                        style="font-size:20px;float:right;"></i>
+                    <em class="fa fa-close" style="font-size:20px;float:right;"></em>
+               
+            </div>
+            <div class="li">GREEN TEA
+                <br>
+               
+                <i class="fa fa-check" style="font-size:20px;float:right;"></i>
+                <em class="fa fa-close" style="font-size:20px;float:right;"></em>
+               
+            </div>
+        </div>
+        </ul>
+    </center>
+</body>
+<script>
+    $(document).ready(function () {
+        $('#b2').click(function () {
+            $('.li').remove();
+        });
+        $("#b1").click(function () {
+            var x = $("#in").val();
+            if (x.length == 0) {
+                alert("PLEASE ENTER THE ITEM");
+                return;
+            }
+            console.log(x)
+            $("#main").prepend("<div class=\"li\">" + x + "  <br> <i  onmouseover=\"fun()\" class=\"fa fa-check\"  style=\"font-size:20px;float:right;\"></i><em  class=\"fa fa-close\" onmouseover=\"fun2()\"  style=\"font-size:20px;float:right;\"></em></div>");
+        });
+        $("i").click(function () {
+            $(this).css("color", "green");
+
+        });
+        $("em").click(function () {
+            $(this).css("color", "rgb(233, 62, 62)");
+        });
+        $("span").click(function () {
+            console.log("hi");
+            $(this).addClass("changed");
+        });
+
+    });
+    function fun() {
+        $("i").click(function () {
+            $(this).css("color", "green");
+        });
+
+    }
+    function fun2() {
+        $("em").click(function () {
+            $(this).css("color", "rgb(233, 62, 62)");
+        });
+    }
+    
+    
+</script>
+
+</html>
