@@ -10,7 +10,7 @@
 
     <style>
         #heading {
-            background-color: rgb(0,0,0);
+            background-color: rgb(0, 0, 0);
             top: 0px;
             left: 0px;
             position: fixed;
@@ -118,31 +118,36 @@ i,em{
                 return;
             }
             console.log(x)
-            $("#main").prepend("<div class=\"li\">" + x + "  <br> <i  onmouseover=\"fun()\" class=\"fa fa-check\"  style=\"font-size:20px;float:right;\"></i><em  class=\"fa fa-close\" onmouseover=\"fun2()\"  style=\"font-size:20px;float:right;\"></em></div>");
+            $("#main").prepend("<div class=\"li\">" + x + "  <br> <i  onclick=\"fun(this)\" class=\"fa fa-check\"  style=\"font-size:20px;float:right;\"></i><em  class=\"fa fa-close\" onclick=\"fun2(this)\"  style=\"font-size:20px;float:right;\"></em></div>");
         });
-        $("i").click(function () {
-            $(this).css("color", "green");
-
-        });
-        $("em").click(function () {
-            $(this).css("color", "rgb(233, 62, 62)");
-        });
-        $("span").click(function () {
-            console.log("hi");
-            $(this).addClass("changed");
-        });
+        
 
     });
-    function fun() {
-        $("i").click(function () {
-            $(this).css("color", "green");
-        });
-
+    var x1=0;
+    var y1=0;
+    function fun(x) {
+      if(x1==0)
+      {
+          x.style.color="green";
+          x1=1;
+      }
+      else
+        {
+            x.style.color="grey";
+            x1=0;
+        }
     }
-    function fun2() {
-        $("em").click(function () {
-            $(this).css("color", "rgb(233, 62, 62)");
-        });
+    function fun2(x) {
+        if(y1==0)
+        {
+            x.style.color="rgb(233, 62, 62)";
+            y1=1;
+        }
+        else
+        {
+            x.style.color="grey";
+            y1=0;
+        }
     }
     
     
